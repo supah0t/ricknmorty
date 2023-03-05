@@ -1,0 +1,21 @@
+.drop-area {
+    height: 12rem;
+    width: 85vw;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+.ribbon-container {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.ribbon-character {
+    height: 11rem;
+    width: 11vw;
+    border: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+}

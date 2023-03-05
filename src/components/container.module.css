@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ribbon-area {
+    display: flex;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.refresh-button {
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background: lightgrey;
+    width: 100%;
+    flex-basis: 7%;
+    cursor: pointer;
+}
+
+.refresh-button:hover {
+    background: grey;
+}
+
+.refresh-button:active {
+    background: darkgrey;
+}
