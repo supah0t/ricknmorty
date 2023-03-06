@@ -1,0 +1,45 @@
+.modal {
+    background-color: rgb(60, 62, 68);
+    width: 800px;
+    height: 800px;
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 10px;
+    z-index: 11;
+    cursor: initial;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.input {
+    width: 100%;
+    height: 36px;
+    border-radius: 4px;
+    padding-left: 12px;
+    font-size: 14px;
+    font-weight: normal;
+    border: 1px solid rgb(137, 151, 155);
+    transition: border-color 150ms ease-in-out 0s;
+    outline: none;
+    color: rgb(33, 49, 60);
+    background-color: rgb(255, 255, 255);
+    padding-right: 12px;
+    margin-bottom: 1rem;
+}
+
+.gap-20 {
+    margin-bottom: 20px;
+}
+
+.form {
+    margin: 0 8rem 0 8rem;
+}

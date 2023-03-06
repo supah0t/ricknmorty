@@ -4,7 +4,7 @@
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
-    background-color: lightgrey;
+    background-color: rgba(140, 145, 171, 1);
 }
 
 .ribbon-container {
@@ -13,9 +13,53 @@
 }
 
 .ribbon-character {
-    height: 11rem;
-    width: 11vw;
-    border: 1px solid grey;
+    height: 11.3rem;
+    width: 9rem;
     border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(60, 62, 68);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.ribbon-image {
+    max-height: 9rem;
+    max-width: 9rem;
+    height: auto;
+    width: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.ribbon-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 0.5rem;
+    padding: 0.5rem 0.1rem 0 0.1rem;
+}
+
+.create-button {
+    height: 11.3rem;
+    width: 9rem;
+    font-size: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    background-color: rgba(62, 74, 89, 0.9);
+    backdrop-filter: blur(10px);
+    min-width: 1100px;
     cursor: pointer;
 }
