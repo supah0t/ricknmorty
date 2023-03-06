@@ -71,3 +71,7 @@ h6 {
 #__next {
     isolation: isolate;
 }
+
+body {
+    background-color: #272b33;
+}

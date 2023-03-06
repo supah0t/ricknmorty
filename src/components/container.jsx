@@ -32,11 +32,13 @@ const Container = () => {
                     onClick={() => buttonClick()}
                     disabled={disabled}
                 >
-                    {!disabled ? 'Refetch' : 'Wait...'}
+                    {!disabled ? 'Shuffle' : 'Wait...'}
                 </button>
             </div>
             {isFetching ? (
-                <span>Loading...</span>
+                <div style={{ color: 'white', 'text-align': 'center' }}>
+                    Shuffling...
+                </div>
             ) : isError ? (
                 <span>Error: {error}</span>
             ) : (

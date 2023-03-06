@@ -19,7 +19,10 @@ const Ribbon = ({ content, setContent }) => {
     return (
         <div ref={drop} className={styles['drop-area']} data-testid="dustbin">
             {isActive ? (
-                'Release to drop'
+                <div className={styles['container']}>
+                    <div className={styles['drop-overlay']} />
+                    <RenderContent content={content} setContent={setContent} />
+                </div>
             ) : content.length !== 0 ? (
                 <RenderContent content={content} setContent={setContent} />
             ) : (

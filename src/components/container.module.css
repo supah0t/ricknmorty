@@ -18,7 +18,9 @@
     margin: 5px;
     border: none;
     border-radius: 5px;
-    background-color: rgba(140, 145, 171, 1);
+    background-color: rgb(60, 62, 68);
+    color: white;
+    font-weight: bold;
     width: 100%;
     flex-basis: 7%;
     cursor: pointer;

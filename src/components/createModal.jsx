@@ -4,7 +4,7 @@ import styles from './createModal.module.css';
 
 const generateRandom = () => {
     let random = Math.random() * 3000;
-    random = Math.floor(random);
+    random = Math.floor(random) + 826;
     return random.toString();
 };
 

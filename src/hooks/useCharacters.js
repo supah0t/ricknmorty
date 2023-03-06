@@ -4,7 +4,9 @@ import axios from 'axios';
 export const queryClient = new QueryClient();
 
 export const useCharacterData = () => {
-    const randomArray = [...Array(9)].map((_) => (Math.random() * 826) | 0);
+    const randomArray = [...Array(9)].map(
+        (_) => (Math.random() * 826) | (0 + 1)
+    );
 
     const {
         data: characters,
