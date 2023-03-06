@@ -1,12 +1,17 @@
 {
     "name": "rm-deckbuilder",
     "private": true,
+    "author": "me",
+    "description": "nice app",
     "version": "0.0.0",
-    "type": "module",
+    "type": "commonjs",
+    "main": "main.js",
+    "homepage": "./",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "electron": "electron ."
     },
     "dependencies": {
         "@tanstack/react-query": "^4.24.10",
@@ -20,6 +25,7 @@
         "@types/react": "^18.0.27",
         "@types/react-dom": "^18.0.10",
         "@vitejs/plugin-react": "^3.1.0",
+        "electron": "^23.1.2",
         "eslint": "^8.35.0",
         "eslint-plugin-react": "^7.32.2",
         "vite": "^4.1.0"
