@@ -68,7 +68,7 @@ const CreateModal = ({ setShowCreateModal, setContent }) => {
 
     const addCharacter = () => {
         let date = new Date().toJSON();
-        const items = JSON.parse(localStorage.getItem('cards'));
+        const items = JSON.parse(localStorage.getItem('cards')) || [];
         const completeCharacter = { ...character, dateTime: date };
         localStorage.setItem(
             'cards',

@@ -53,7 +53,7 @@ const CharacterCard = ({
     }));
 
     const addToLocal = (item) => {
-        const items = JSON.parse(localStorage.getItem('cards'));
+        const items = JSON.parse(localStorage.getItem('cards')) || [];
         localStorage.setItem('cards', JSON.stringify([...items, item]));
     };
 

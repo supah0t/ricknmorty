@@ -13,7 +13,7 @@ const Container = () => {
         useCharacterData();
 
     useEffect(() => {
-        const items = JSON.parse(localStorage.getItem('cards'));
+        const items = JSON.parse(localStorage.getItem('cards')) || [];
         setContent(items);
     }, []);
 
@@ -36,7 +36,7 @@ const Container = () => {
                 </button>
             </div>
             {isFetching ? (
-                <div style={{ color: 'white', 'text-align': 'center' }}>
+                <div style={{ color: 'white', textAlign: 'center' }}>
                     Shuffling...
                 </div>
             ) : isError ? (

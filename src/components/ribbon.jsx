@@ -5,7 +5,7 @@ import CreateModal from './createModal';
 
 import styles from './ribbon.module.css';
 
-const Ribbon = ({ content, setContent }) => {
+const Ribbon = ({ content = [], setContent }) => {
     const [{ canDrop, isOver }, drop] = useDrop(() => ({
         accept: 'box',
         drop: () => ({ name: 'Dustbin' }),
