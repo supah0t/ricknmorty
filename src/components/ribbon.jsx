@@ -6,6 +6,7 @@ import CreateModal from './createModal';
 import styles from './ribbon.module.css';
 
 const Ribbon = ({ content = [], setContent }) => {
+    const [showCreateModal, setShowCreateModal] = useState(false);
     const [{ canDrop, isOver }, drop] = useDrop(() => ({
         accept: 'box',
         drop: () => ({ name: 'Dustbin' }),
@@ -24,7 +25,12 @@ const Ribbon = ({ content = [], setContent }) => {
                     <RenderContent content={content} setContent={setContent} />
                 </div>
             ) : content.length !== 0 ? (
-                <RenderContent content={content} setContent={setContent} />
+                <RenderContent
+                    content={content}
+                    setContent={setContent}
+                    showCreateModal={showCreateModal}
+                    setShowCreateModal={setShowCreateModal}
+                />
             ) : (
                 <button
                     className={styles['create-button']}
@@ -37,9 +43,12 @@ const Ribbon = ({ content = [], setContent }) => {
     );
 };
 
-const RenderContent = ({ content, setContent }) => {
-    const [showCreateModal, setShowCreateModal] = useState(false);
-
+const RenderContent = ({
+    content,
+    setContent,
+    showCreateModal,
+    setShowCreateModal,
+}) => {
     const removeItem = (id) => {
         const newItems = content.filter((obj) => {
             return obj.id !== id;

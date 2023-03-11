@@ -43,3 +43,7 @@
 .form {
     margin: 0 8rem 0 8rem;
 }
+
+.error {
+    border: 1px solid red;
+}

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useCharacterData } from '../hooks/useCharacters';
 import Ribbon from './ribbon';
 import CharacterCard from './characterCard';
+import Searchbar from './searchbar';
 
 import styles from './container.module.css';
 
@@ -25,6 +26,7 @@ const Container = () => {
 
     return (
         <div>
+            <Searchbar />
             <div className={styles['ribbon-area']}>
                 <Ribbon content={content} setContent={setContent} />
                 <button

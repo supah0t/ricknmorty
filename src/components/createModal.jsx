@@ -23,7 +23,6 @@ const CreateModal = ({ setShowCreateModal, setContent }) => {
     });
     const [errors, setErrors] = useState({
         name: false,
-        status: false,
         image: false,
     });
 
@@ -45,7 +44,6 @@ const CreateModal = ({ setShowCreateModal, setContent }) => {
         const newValue = e.target.value;
         setCharacter((prev) => ({ ...prev, [type]: e.target.value }));
         if (type === 'name') {
-            console.log(newValue);
             if (
                 newValue.length < 3 ||
                 newValue.length > 80 ||
@@ -63,10 +61,12 @@ const CreateModal = ({ setShowCreateModal, setContent }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (errors.name || errors.image) return;
         setShowCreateModal(false);
     };
 
     const addCharacter = () => {
+        if (errors.name || errors.image) return;
         let date = new Date().toJSON();
         const items = JSON.parse(localStorage.getItem('cards')) || [];
         const completeCharacter = { ...character, dateTime: date };
@@ -87,7 +87,9 @@ const CreateModal = ({ setShowCreateModal, setContent }) => {
                     <input
                         onChange={(e) => handleChange(e, 'name')}
                         value={character.name}
-                        className={styles['input']}
+                        className={`${styles['input']} ${
+                            errors.name && styles['error']
+                        }`}
                         type="text"
                         name="name"
                     />
@@ -158,7 +160,9 @@ const CreateModal = ({ setShowCreateModal, setContent }) => {
                     <input
                         onChange={(e) => handleChange(e, 'image')}
                         value={character.image}
-                        className={styles['input']}
+                        className={`${styles['input']} ${
+                            errors.image && styles['error']
+                        }`}
                         type="text"
                         name="image"
                     />
