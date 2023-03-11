@@ -27,11 +27,10 @@ yarn dev
 - react-dnd: drag and drop functionality
 - eslint: linter
 
-## Incomplete tasks
-- electron (unfamiliar with the framework, couldn't make it work within timeframe)
-
 ## Improvements
 - Error handling in case of data issues
-- Better css code design (propably using a preprocessor) e.g variables for commonly used colors
+- Tailwind css
 - Better overall style with more attention to detail
 - Mobile responsiveness (app doesn't show properly bellow 1500px width)
+- Unit tests
+- Better error indicators and info messages for the user
