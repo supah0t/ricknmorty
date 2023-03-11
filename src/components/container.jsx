@@ -26,7 +26,6 @@ const Container = () => {
 
     return (
         <div>
-            <Searchbar />
             <div className={styles['ribbon-area']}>
                 <Ribbon content={content} setContent={setContent} />
                 <button
@@ -37,6 +36,7 @@ const Container = () => {
                     {!disabled ? 'Shuffle' : 'Wait...'}
                 </button>
             </div>
+            <Searchbar />
             {isFetching ? (
                 <div style={{ color: 'white', textAlign: 'center' }}>
                     Shuffling...

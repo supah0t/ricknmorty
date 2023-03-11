@@ -79,7 +79,7 @@ const CreateModal = ({ setShowCreateModal, setContent }) => {
 
     return (
         <div className={styles['modal']}>
-            <h3>Create modal</h3>
+            <h3>Create Character</h3>
             <div className={styles['gap-20']} />
             <form className={styles['form']} onSubmit={handleSubmit}>
                 <label>

@@ -53,6 +53,10 @@
     color: white;
 }
 
+.create-button:focus {
+    outline: none;
+}
+
 .overlay {
     height: 100%;
     width: 100%;

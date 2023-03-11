@@ -1,7 +1,7 @@
 import styles from './searchbar.module.css';
 
 const Searchbar = () => {
-    return <input />;
+    return <input className={styles['searchbar']} />;
 };
 
 export default Searchbar;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDrop } from 'react-dnd';
 
 import CreateModal from './createModal';
@@ -7,6 +7,21 @@ import styles from './ribbon.module.css';
 
 const Ribbon = ({ content = [], setContent }) => {
     const [showCreateModal, setShowCreateModal] = useState(false);
+
+    useEffect(() => {
+        const handleEsc = (e) => {
+            if (e.key === 'Escape') setShowCreateModal(false);
+        };
+
+        if (showCreateModal) {
+            window.addEventListener('keydown', handleEsc);
+        }
+
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+        };
+    }, [showCreateModal]);
+
     const [{ canDrop, isOver }, drop] = useDrop(() => ({
         accept: 'box',
         drop: () => ({ name: 'Dustbin' }),
@@ -17,8 +32,27 @@ const Ribbon = ({ content = [], setContent }) => {
     }));
     const isActive = canDrop && isOver;
 
+    const handleOverlayClick = (e) => {
+        if (setShowCreateModal) {
+            e.stopPropagation();
+            setShowCreateModal(false);
+        }
+    };
+
     return (
         <div ref={drop} className={styles['drop-area']} data-testid="dustbin">
+            {showCreateModal && (
+                <>
+                    <div
+                        className={styles['overlay']}
+                        onClick={handleOverlayClick}
+                    />
+                    <CreateModal
+                        setShowCreateModal={setShowCreateModal}
+                        setContent={setContent}
+                    />
+                </>
+            )}
             {isActive ? (
                 <div className={styles['container']}>
                     <div className={styles['drop-overlay']} />
@@ -28,7 +62,6 @@ const Ribbon = ({ content = [], setContent }) => {
                 <RenderContent
                     content={content}
                     setContent={setContent}
-                    showCreateModal={showCreateModal}
                     setShowCreateModal={setShowCreateModal}
                 />
             ) : (
@@ -43,12 +76,7 @@ const Ribbon = ({ content = [], setContent }) => {
     );
 };
 
-const RenderContent = ({
-    content,
-    setContent,
-    showCreateModal,
-    setShowCreateModal,
-}) => {
+const RenderContent = ({ content, setContent, setShowCreateModal }) => {
     const removeItem = (id) => {
         const newItems = content.filter((obj) => {
             return obj.id !== id;
@@ -59,13 +87,6 @@ const RenderContent = ({
                 return obj.id !== id;
             })
         );
-    };
-
-    const handleOverlayClick = (e) => {
-        if (setShowCreateModal) {
-            e.stopPropagation();
-            setShowCreateModal(false);
-        }
     };
 
     return (
@@ -86,18 +107,6 @@ const RenderContent = ({
                     </div>
                 );
             })}
-            {showCreateModal && (
-                <>
-                    <div
-                        className={styles['overlay']}
-                        onClick={handleOverlayClick}
-                    />
-                    <CreateModal
-                        setShowCreateModal={setShowCreateModal}
-                        setContent={setContent}
-                    />
-                </>
-            )}
             <button
                 disabled={content.length === 8}
                 className={styles['create-button']}
