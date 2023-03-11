@@ -66,7 +66,11 @@ const CharacterCard = ({
 
     return (
         <div
-            ref={content.length < 8 ? drag : null}
+            ref={
+                content.length < 8 && !content.find((item) => item.id === id)
+                    ? drag
+                    : null
+            }
             className={styles['character-card']}
         >
             {showModal && (

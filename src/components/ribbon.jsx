@@ -40,7 +40,7 @@ const Ribbon = ({ content = [], setContent }) => {
     };
 
     return (
-        <div ref={drop} className={styles['drop-area']} data-testid="dustbin">
+        <>
             {showCreateModal && (
                 <>
                     <div
@@ -53,26 +53,36 @@ const Ribbon = ({ content = [], setContent }) => {
                     />
                 </>
             )}
-            {isActive ? (
-                <div className={styles['container']}>
-                    <div className={styles['drop-overlay']} />
-                    <RenderContent content={content} setContent={setContent} />
-                </div>
-            ) : content.length !== 0 ? (
-                <RenderContent
-                    content={content}
-                    setContent={setContent}
-                    setShowCreateModal={setShowCreateModal}
-                />
-            ) : (
-                <button
-                    className={styles['create-button']}
-                    onClick={() => setShowCreateModal(true)}
-                >
-                    +
-                </button>
-            )}
-        </div>
+            <div
+                ref={drop}
+                className={styles['drop-area']}
+                data-testid="dustbin"
+            >
+                {isActive ? (
+                    <div className={styles['container']}>
+                        <div className={styles['drop-overlay']} />
+                        <RenderContent
+                            content={content}
+                            setContent={setContent}
+                        />
+                    </div>
+                ) : content.length !== 0 ? (
+                    <RenderContent
+                        content={content}
+                        setContent={setContent}
+                        setShowCreateModal={setShowCreateModal}
+                    />
+                ) : (
+                    <button
+                        className={styles['create-button']}
+                        style={{ margin: '5px' }}
+                        onClick={() => setShowCreateModal(true)}
+                    >
+                        +
+                    </button>
+                )}
+            </div>
+        </>
     );
 };
 
